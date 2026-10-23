@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GST Refund Services in Gurugram | The Prudent Books</title>
-  <meta name="description" content="GST refund filing in Gurugram, handled by a Chartered Accountant. Exports, inverted duty structure, excess cash ledger and more. Chat with The Prudent Books on WhatsApp.">
-  <meta property="og:title" content="GST Refund Services | The Prudent Books, Gurugram">
-  <meta property="og:description" content="GST refunds filed correctly by a Chartered Accountant. Chat with us on WhatsApp.">
+  <title>GST Refund Services in Delhi-NCR | The Prudent Books</title>
+  <meta name="description" content="GST refund stuck? Get it back with a Chartered Accountant in Delhi-NCR. Exports, inverted duty structure, excess cash ledger, SEZ and more. Call The Prudent Books for a free eligibility check.">
+  <meta property="og:title" content="GST Refund in Delhi-NCR | The Prudent Books">
+  <meta property="og:description" content="Is your GST refund stuck? Get it back with a CA in Delhi-NCR. Call +91 99995 98298.">
   <meta property="og:type" content="website">
   <style>
     :root {
@@ -19,6 +19,9 @@
       --bg-soft: #f4f7fb;
       --green: #1fa855;
       --green-dark: #168a45;
+      --amber: #f5a623;
+      --amber-dark: #e0901a;
+      --warn-bg: #fff6e5;
       --radius: 12px;
     }
     * { box-sizing: border-box; }
@@ -29,7 +32,7 @@
       color: var(--ink);
       background: var(--bg);
       line-height: 1.6;
-      padding-bottom: 80px; /* room for the floating WhatsApp button */
+      padding-bottom: 80px; /* room for the floating button / mobile call bar */
     }
     a { color: inherit; }
     .wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
@@ -38,17 +41,24 @@
     section { padding: 64px 0; }
     .section-intro { color: var(--muted); max-width: 640px; margin: 0 0 32px; }
 
-    /* WhatsApp button */
-    .wa-btn {
+    /* Buttons */
+    .btn {
       display: inline-flex; align-items: center; gap: 10px;
-      background: var(--green); color: #fff; text-decoration: none;
-      font-weight: 600; padding: 12px 20px; border-radius: 999px;
-      transition: background .15s ease;
+      text-decoration: none; font-weight: 700;
+      padding: 12px 20px; border-radius: 999px;
+      transition: background .15s ease, transform .15s ease;
     }
-    .wa-btn:hover { background: var(--green-dark); }
-    .wa-btn svg { width: 20px; height: 20px; flex: none; }
-    .wa-btn.lg { font-size: 1.1rem; padding: 16px 28px; }
-    .wa-btn.lg svg { width: 24px; height: 24px; }
+    .btn svg { width: 20px; height: 20px; flex: none; }
+    .btn.lg { font-size: 1.1rem; padding: 16px 28px; }
+    .btn.lg svg { width: 24px; height: 24px; }
+    .btn-call { background: var(--amber); color: #1a1205; }
+    .btn-call:hover { background: var(--amber-dark); }
+    .btn-wa { background: var(--green); color: #fff; }
+    .btn-wa:hover { background: var(--green-dark); }
+    .desk-num { display: none; }
+    @media (hover: hover) and (min-width: 900px) {
+      .desk-num { display: inline; } /* desktops can't dial, so show the number */
+    }
 
     /* Header */
     header {
@@ -59,19 +69,22 @@
     .nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; }
     .brand { font-weight: 700; font-size: 1.15rem; color: var(--navy); text-decoration: none; }
     .brand span { display: block; font-size: .75rem; font-weight: 500; color: var(--muted); }
-    .nav .wa-btn { padding: 10px 16px; font-size: .95rem; }
+    .nav .btn { padding: 10px 16px; font-size: .95rem; }
 
     /* Hero */
     .hero {
       background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
-      color: #fff; padding: 80px 0 72px;
+      color: #fff; padding: 80px 0 64px;
     }
-    .hero h1 { color: #fff; font-size: clamp(1.9rem, 4.5vw, 3rem); max-width: 760px; }
-    .hero p { color: #d6e0ee; font-size: 1.1rem; max-width: 620px; margin: 0 0 28px; }
+    .hero h1 { color: #fff; font-size: clamp(1.9rem, 4.5vw, 3rem); max-width: 800px; }
+    .hero h1 em { font-style: normal; color: var(--amber); }
+    .hero p { color: #d6e0ee; font-size: 1.1rem; max-width: 640px; margin: 0 0 28px; }
     .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
-    .hero-phone { color: #d6e0ee; text-decoration: none; }
-    .hero-phone strong { color: #fff; }
+    .hero-alt { color: #d6e0ee; }
+    .hero-alt a { color: #fff; font-weight: 600; }
     .tagline { display: inline-block; font-size: .85rem; letter-spacing: .04em; text-transform: uppercase; color: #9fc1e8; margin-bottom: 12px; }
+    .trust { list-style: none; padding: 0; margin: 36px 0 0; display: flex; flex-wrap: wrap; gap: 10px 24px; color: #d6e0ee; font-size: .95rem; }
+    .trust li::before { content: "✓ "; color: var(--amber); font-weight: 700; }
 
     /* Cards */
     .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
@@ -82,6 +95,16 @@
     .card h3 { font-size: 1.1rem; }
     .card p { margin: 0; color: var(--muted); }
     .soft { background: var(--bg-soft); }
+    .problem .card { border-left: 4px solid var(--amber); }
+
+    /* Inline call-to-action after sections */
+    .cta-inline {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;
+      margin-top: 32px; padding: 20px 24px; border-radius: var(--radius);
+      background: var(--bg-soft); border: 1px solid var(--line);
+    }
+    .soft .cta-inline { background: var(--bg); }
+    .cta-inline p { margin: 0; font-weight: 600; color: var(--navy); }
 
     /* Steps */
     .steps { counter-reset: step; }
@@ -93,6 +116,12 @@
       background: var(--navy); color: #fff; font-weight: 700;
       display: grid; place-items: center;
     }
+
+    /* Deadline warning */
+    .deadline { background: var(--warn-bg); border-top: 1px solid #f3dcae; border-bottom: 1px solid #f3dcae; padding: 40px 0; }
+    .deadline .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; }
+    .deadline h2 { margin-bottom: 6px; font-size: clamp(1.3rem, 2.6vw, 1.7rem); }
+    .deadline p { margin: 0; color: var(--muted); max-width: 640px; }
 
     /* Checklist */
     .checklist { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
@@ -108,10 +137,11 @@
     details[open] summary::after { content: "−"; }
     details p { margin: 12px 0 0; color: var(--muted); }
 
-    /* CTA band */
+    /* Final CTA band */
     .cta { background: var(--navy); color: #fff; text-align: center; }
     .cta h2 { color: #fff; }
     .cta p { color: #d6e0ee; margin: 0 auto 28px; max-width: 560px; }
+    .cta .hero-actions { justify-content: center; }
 
     /* Footer */
     footer { background: #0a1d33; color: #b7c4d6; padding: 40px 0 24px; font-size: .95rem; }
@@ -122,39 +152,78 @@
     footer a:hover { text-decoration: underline; }
     .disclaimer { border-top: 1px solid #1f3554; padding-top: 16px; font-size: .8rem; color: #8798ae; }
 
-    /* Floating WhatsApp */
+    /* Floating WhatsApp (desktop/tablet) */
     .wa-float {
       position: fixed; right: 20px; bottom: 20px; z-index: 20;
       width: 60px; height: 60px; border-radius: 50%;
-      background: var(--green); display: grid; place-items: center;
+      background: var(--green); color: #fff; display: grid; place-items: center;
       box-shadow: 0 6px 20px rgba(0,0,0,.25);
       transition: transform .15s ease, background .15s ease;
     }
     .wa-float:hover { background: var(--green-dark); transform: scale(1.06); }
     .wa-float svg { width: 32px; height: 32px; }
 
-    @media (max-width: 560px) {
+    /* Sticky call bar (mobile) */
+    .call-bar { display: none; }
+
+    /* Call Now pop-up */
+    .popup {
+      position: fixed; inset: 0; z-index: 50;
+      background: rgba(10, 29, 51, .6);
+      display: grid; place-items: center; padding: 16px;
+    }
+    .popup[hidden] { display: none; }
+    .popup-box {
+      position: relative; width: 100%; max-width: 420px;
+      background: var(--bg); border-radius: 16px; padding: 32px 24px 24px;
+      text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,.3);
+      animation: pop .2s ease-out;
+    }
+    @keyframes pop { from { transform: scale(.94); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .popup-box h2 { font-size: 1.5rem; }
+    .popup-box p { color: var(--muted); margin: 0 0 20px; }
+    .popup-box .btn { width: 100%; justify-content: center; }
+    .popup-close {
+      position: absolute; top: 8px; right: 8px;
+      width: 40px; height: 40px; border: 0; border-radius: 50%;
+      background: transparent; color: var(--muted); font-size: 1.5rem; cursor: pointer;
+    }
+    .popup-close:hover { background: var(--bg-soft); }
+    .popup-later { display: inline-block; margin-top: 12px; background: none; border: 0; color: var(--muted); font-size: .95rem; cursor: pointer; text-decoration: underline; }
+
+    @media (max-width: 640px) {
       section { padding: 48px 0; }
-      .hero { padding: 56px 0; }
-      .nav .wa-btn .label-long { display: none; }
-      .wa-btn.lg { width: 100%; justify-content: center; }
+      .hero { padding: 56px 0 48px; }
+      .btn.lg { width: 100%; justify-content: center; }
+      .cta-inline .btn { width: 100%; justify-content: center; }
+      .wa-float { display: none; }
+      .call-bar {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+        position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+        padding: 10px 12px; background: var(--bg);
+        border-top: 1px solid var(--line); box-shadow: 0 -4px 16px rgba(0,0,0,.08);
+      }
+      .call-bar .btn { justify-content: center; padding: 12px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- WhatsApp icon, reused below via <use> -->
+  <!-- Icons, reused below via <use> -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="wa-icon" viewBox="0 0 24 24">
       <path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.04 21.5h-.01a9.43 9.43 0 0 1-4.81-1.32l-.35-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.24-9.44 9.46-9.44a9.4 9.4 0 0 1 6.68 2.77 9.38 9.38 0 0 1 2.77 6.68c0 5.21-4.24 9.44-9.46 9.44zm8.05-17.49A11.3 11.3 0 0 0 12.04.67C5.77.67.67 5.77.67 12.03c0 2 .52 3.96 1.52 5.68L.57 23.33l5.75-1.5a11.34 11.34 0 0 0 5.72 1.46h.01c6.27 0 11.37-5.1 11.37-11.37 0-3.04-1.18-5.89-3.33-8.04z"/>
+    </symbol>
+    <symbol id="phone-icon" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/>
     </symbol>
   </svg>
 
   <header>
     <div class="wrap nav">
-      <a class="brand" href="#top">The Prudent Books<span>Chartered Accountants · Gurugram</span></a>
-      <a class="wa-btn" href="https://wa.me/919999598298?text=Hi%20The%20Prudent%20Books%2C%20I%20need%20help%20with%20my%20GST%20refund." target="_blank" rel="noopener">
-        <svg><use href="#wa-icon"/></svg><span>Chat<span class="label-long"> on WhatsApp</span></span>
+      <a class="brand" href="#top">The Prudent Books<span>Chartered Accountants · Delhi-NCR</span></a>
+      <a class="btn btn-call" href="tel:+919999598298">
+        <svg><use href="#phone-icon"/></svg><span>Call Now<span class="desk-num"> · 99995 98298</span></span>
       </a>
     </div>
   </header>
@@ -163,23 +232,66 @@
     <!-- Hero -->
     <section class="hero">
       <div class="wrap">
-        <span class="tagline">GST Refund Services · Gurugram, Haryana</span>
-        <h1>GST refunds, filed correctly by a Chartered Accountant</h1>
-        <p>From checking whether you qualify to filing Form RFD-01 and following up with the department, The Prudent Books handles your GST refund from start to finish.</p>
+        <span class="tagline">GST Refund in Delhi-NCR</span>
+        <h1>Is your GST refund stuck? <em>Get it back</em> with a CA in Delhi-NCR.</h1>
+        <p>Exports, inverted duty, excess cash ledger, SEZ supplies: we check your eligibility, file the claim and follow up until the money reaches your bank. Call now for a free eligibility check.</p>
         <div class="hero-actions">
-          <a class="wa-btn lg" href="https://wa.me/919999598298?text=Hi%20The%20Prudent%20Books%2C%20I%20need%20help%20with%20my%20GST%20refund." target="_blank" rel="noopener">
-            <svg><use href="#wa-icon"/></svg>Chat on WhatsApp
+          <a class="btn btn-call lg" href="tel:+919999598298">
+            <svg><use href="#phone-icon"/></svg>Call Now<span class="desk-num">: +91 99995 98298</span>
           </a>
-          <a class="hero-phone" href="tel:+919999598298">or call <strong>+91 99995 98298</strong></a>
+          <span class="hero-alt">or <a href="https://wa.me/919999598298?text=Hi%20The%20Prudent%20Books%2C%20I%20need%20help%20with%20my%20GST%20refund." target="_blank" rel="noopener">message us on WhatsApp</a></span>
+        </div>
+        <ul class="trust">
+          <li>CA-led</li>
+          <li>All GST refund types</li>
+          <li>Delhi · Gurugram · Noida · Faridabad · Ghaziabad</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Why refunds get stuck -->
+    <section class="problem">
+      <div class="wrap">
+        <h2>Why GST refunds get stuck</h2>
+        <p class="section-intro">Most refunds aren't rejected because the claim is wrong. They get stuck on paperwork. Does any of this sound familiar?</p>
+        <div class="grid">
+          <div class="card">
+            <h3>Data mismatch</h3>
+            <p>Figures in GSTR-1, GSTR-3B and shipping bills don't match, so the claim never moves forward.</p>
+          </div>
+          <div class="card">
+            <h3>Deficiency memo</h3>
+            <p>The department issued a deficiency memo (RFD-03) and the claim has to be filed again.</p>
+          </div>
+          <div class="card">
+            <h3>Notice before rejection</h3>
+            <p>A show-cause notice (RFD-08) needs a proper reply in time, or the refund can be rejected.</p>
+          </div>
+          <div class="card">
+            <h3>Bank account not validated</h3>
+            <p>The refund is sanctioned but can't be paid because the bank account on the portal isn't validated.</p>
+          </div>
+          <div class="card">
+            <h3>Wrong category or missing statements</h3>
+            <p>The claim was filed under the wrong refund type or without the required statements and annexures.</p>
+          </div>
+          <div class="card">
+            <h3>Running out of time</h3>
+            <p>Older periods are close to the 2-year limit, and once it passes, the refund is lost.</p>
+          </div>
+        </div>
+        <div class="cta-inline">
+          <p>Facing one of these? Talk to a CA today.</p>
+          <a class="btn btn-call" href="tel:+919999598298"><svg><use href="#phone-icon"/></svg>Call Now<span class="desk-num">: 99995 98298</span></a>
         </div>
       </div>
     </section>
 
     <!-- Refund types -->
-    <section>
+    <section class="soft">
       <div class="wrap">
         <h2>GST refunds we handle</h2>
-        <p class="section-intro">If GST is stuck in your credit ledger or you've paid more than you owe, you may be entitled to a refund. We assist with the common categories below.</p>
+        <p class="section-intro">If GST is stuck in your credit ledger or you've paid more than you owe, you may be entitled to a refund.</p>
         <div class="grid">
           <div class="card">
             <h3>Export of goods or services (LUT)</h3>
@@ -206,21 +318,36 @@
             <p>Refund claims on supplies notified as deemed exports, filed by the supplier or the recipient.</p>
           </div>
         </div>
+        <div class="cta-inline">
+          <p>Not sure which one applies to you? We'll tell you on the call.</p>
+          <a class="btn btn-call" href="tel:+919999598298"><svg><use href="#phone-icon"/></svg>Call Now<span class="desk-num">: 99995 98298</span></a>
+        </div>
       </div>
     </section>
 
+    <!-- Deadline warning -->
+    <div class="deadline">
+      <div class="wrap">
+        <div>
+          <h2>⏳ GST refunds expire after 2 years</h2>
+          <p>A refund claim generally has to be filed within two years from the relevant date. Every month you wait, older periods move closer to lapsing for good.</p>
+        </div>
+        <a class="btn btn-call lg" href="tel:+919999598298"><svg><use href="#phone-icon"/></svg>Call Now<span class="desk-num">: 99995 98298</span></a>
+      </div>
+    </div>
+
     <!-- How it works -->
-    <section class="soft">
+    <section>
       <div class="wrap">
         <h2>How it works</h2>
-        <p class="section-intro">A simple process, with updates on WhatsApp at every stage.</p>
+        <p class="section-intro">A simple process, with updates at every stage.</p>
         <div class="grid steps">
           <div class="card step">
-            <h3>Message us on WhatsApp</h3>
+            <h3>Call us</h3>
             <p>Tell us your GSTIN and the type of refund you're looking at.</p>
           </div>
           <div class="card step">
-            <h3>Eligibility check</h3>
+            <h3>Free eligibility check</h3>
             <p>We review your returns and ledgers to confirm the claim and the amount.</p>
           </div>
           <div class="card step">
@@ -236,7 +363,7 @@
     </section>
 
     <!-- Documents -->
-    <section>
+    <section class="soft">
       <div class="wrap">
         <h2>Documents usually needed</h2>
         <p class="section-intro">The exact list depends on the type of refund. These are the common ones. We'll confirm what applies to you.</p>
@@ -250,11 +377,15 @@
           <li>Bank account details linked on the GST portal</li>
           <li>Electronic credit and cash ledger statements</li>
         </ul>
+        <div class="cta-inline">
+          <p>Don't have everything ready? Call anyway, and we'll help you put it together.</p>
+          <a class="btn btn-call" href="tel:+919999598298"><svg><use href="#phone-icon"/></svg>Call Now<span class="desk-num">: 99995 98298</span></a>
+        </div>
       </div>
     </section>
 
     <!-- Why us -->
-    <section class="soft">
+    <section>
       <div class="wrap">
         <h2>Working with The Prudent Books</h2>
         <div class="grid">
@@ -263,8 +394,8 @@
             <p>Your claim is reviewed and filed under the supervision of a Chartered Accountant.</p>
           </div>
           <div class="card">
-            <h3>Updates on WhatsApp</h3>
-            <p>Share documents and get status updates on WhatsApp, with no need to visit an office.</p>
+            <h3>No office visits needed</h3>
+            <p>Share documents and get status updates over call and WhatsApp, from anywhere in Delhi-NCR.</p>
           </div>
           <div class="card">
             <h3>Clear checklist upfront</h3>
@@ -279,12 +410,12 @@
     </section>
 
     <!-- FAQ -->
-    <section>
+    <section class="soft">
       <div class="wrap faq">
         <h2>Frequently asked questions</h2>
         <details>
           <summary>Who can claim a GST refund?</summary>
-          <p>Common cases include exporters (of goods or services), businesses with an inverted duty structure, suppliers to SEZs, and anyone with excess balance in their electronic cash ledger. Send us your details on WhatsApp and we'll tell you whether you qualify.</p>
+          <p>Common cases include exporters (of goods or services), businesses with an inverted duty structure, suppliers to SEZs, and anyone with excess balance in their electronic cash ledger. Call us and we'll tell you whether you qualify.</p>
         </details>
         <details>
           <summary>Is there a time limit for filing a refund?</summary>
@@ -303,20 +434,29 @@
           <p>We review the memo, arrange the missing documents or clarifications with you, and file a fresh application or reply as required.</p>
         </details>
         <details>
+          <summary>Do you work with businesses outside Gurugram?</summary>
+          <p>Yes. We work with businesses across Delhi-NCR, including Delhi, Gurugram, Noida, Faridabad and Ghaziabad. Most of the work happens online, so there's no need to visit our office.</p>
+        </details>
+        <details>
           <summary>How do I get started?</summary>
-          <p>Tap any "Chat on WhatsApp" button on this page and send us a message. We'll take it from there.</p>
+          <p>Tap any "Call Now" button on this page, or message us on WhatsApp. We'll take it from there.</p>
         </details>
       </div>
     </section>
 
-    <!-- CTA -->
+    <!-- Final CTA -->
     <section class="cta">
       <div class="wrap">
-        <h2>Have a GST refund pending?</h2>
-        <p>Send us a message on WhatsApp with your GSTIN and the refund type, and we'll get back to you.</p>
-        <a class="wa-btn lg" href="https://wa.me/919999598298?text=Hi%20The%20Prudent%20Books%2C%20I%20need%20help%20with%20my%20GST%20refund." target="_blank" rel="noopener">
-          <svg><use href="#wa-icon"/></svg>Chat on WhatsApp
-        </a>
+        <h2>Get your GST refund moving today</h2>
+        <p>Call now with your GSTIN and the refund type. A CA will check your eligibility for free.</p>
+        <div class="hero-actions">
+          <a class="btn btn-call lg" href="tel:+919999598298">
+            <svg><use href="#phone-icon"/></svg>Call Now<span class="desk-num">: +91 99995 98298</span>
+          </a>
+          <a class="btn btn-wa lg" href="https://wa.me/919999598298?text=Hi%20The%20Prudent%20Books%2C%20I%20need%20help%20with%20my%20GST%20refund." target="_blank" rel="noopener">
+            <svg><use href="#wa-icon"/></svg>WhatsApp Us
+          </a>
+        </div>
       </div>
     </section>
   </main>
@@ -327,10 +467,12 @@
         <div>
           <h3>The Prudent Books</h3>
           <p>Chartered Accountants</p>
+          <p>Serving Delhi-NCR</p>
         </div>
         <div>
           <h3>Contact</h3>
-          <p>WhatsApp / Phone: <a href="https://wa.me/919999598298?text=Hi%20The%20Prudent%20Books%2C%20I%20need%20help%20with%20my%20GST%20refund." target="_blank" rel="noopener">+91 99995 98298</a></p>
+          <p>Phone: <a href="tel:+919999598298">+91 99995 98298</a></p>
+          <p>WhatsApp: <a href="https://wa.me/919999598298?text=Hi%20The%20Prudent%20Books%2C%20I%20need%20help%20with%20my%20GST%20refund." target="_blank" rel="noopener">+91 99995 98298</a></p>
           <p>Email: <a href="mailto:sandeephans1963@gmail.com">sandeephans1963@gmail.com</a></p>
         </div>
         <div>
@@ -339,14 +481,69 @@
           <p>Gurugram, Haryana</p>
         </div>
       </div>
-      <p class="disclaimer">The information on this page is for general guidance only and is not professional advice. Refund eligibility, amounts and timelines depend on individual facts and on decisions of the GST department.</p>
+      <p class="disclaimer">The Prudent Books is a private Chartered Accountancy practice and is not affiliated with the GST department or the Government of India. The information on this page is for general guidance only and is not professional advice. Refund eligibility, amounts and timelines depend on individual facts and on decisions of the GST department.</p>
     </div>
   </footer>
 
-  <!-- Floating WhatsApp button -->
+  <!-- Floating WhatsApp button (desktop/tablet) -->
   <a class="wa-float" href="https://wa.me/919999598298?text=Hi%20The%20Prudent%20Books%2C%20I%20need%20help%20with%20my%20GST%20refund." target="_blank" rel="noopener" aria-label="Chat with The Prudent Books on WhatsApp">
-    <svg style="color:#fff"><use href="#wa-icon"/></svg>
+    <svg><use href="#wa-icon"/></svg>
   </a>
+
+  <!-- Sticky call bar (mobile) -->
+  <div class="call-bar">
+    <a class="btn btn-call" href="tel:+919999598298"><svg><use href="#phone-icon"/></svg>Call Now</a>
+    <a class="btn btn-wa" href="https://wa.me/919999598298?text=Hi%20The%20Prudent%20Books%2C%20I%20need%20help%20with%20my%20GST%20refund." target="_blank" rel="noopener"><svg><use href="#wa-icon"/></svg>WhatsApp</a>
+  </div>
+
+  <!-- Call Now pop-up -->
+  <div class="popup" id="call-popup" role="dialog" aria-modal="true" aria-labelledby="popup-title" hidden>
+    <div class="popup-box">
+      <button class="popup-close" type="button" aria-label="Close" data-close>×</button>
+      <h2 id="popup-title">Is your GST refund stuck?</h2>
+      <p>Speak to a CA now for a free eligibility check.</p>
+      <a class="btn btn-call lg popup-call" href="tel:+919999598298"><svg><use href="#phone-icon"/></svg>Call +91 99995 98298</a>
+      <button class="popup-later" type="button" data-close>Not now</button>
+    </div>
+  </div>
+
+  <script>
+    // Show the Call Now pop-up once per visit, 8 seconds after the page opens.
+    (function () {
+      var popup = document.getElementById('call-popup');
+      var KEY = 'callPopupShown';
+
+      function alreadyShown() {
+        try { return sessionStorage.getItem(KEY) === '1'; } catch (e) { return false; }
+      }
+      function markShown() {
+        try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+      }
+      function openPopup() {
+        if (alreadyShown()) return;
+        markShown();
+        popup.hidden = false;
+        popup.querySelector('.popup-call').focus();
+      }
+      function closePopup() {
+        popup.hidden = true;
+      }
+
+      setTimeout(openPopup, 8000);
+
+      // Skip the pop-up if the visitor has already tapped a call or WhatsApp button.
+      document.querySelectorAll('a[href^="tel:"], a[href^="https://wa.me"]').forEach(function (link) {
+        if (!popup.contains(link)) link.addEventListener('click', markShown);
+      });
+
+      popup.addEventListener('click', function (e) {
+        if (e.target === popup || e.target.closest('[data-close]')) closePopup();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !popup.hidden) closePopup();
+      });
+    })();
+  </script>
 
 </body>
 </html>
