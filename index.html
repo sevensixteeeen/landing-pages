@@ -3,6 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18541692818"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-18541692818');
+  </script>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <title>GST Refund Services in Delhi-NCR | The Prudent Books</title>
   <meta name="description" content="GST refund stuck? Get it back with a Chartered Accountant in Delhi-NCR. Exports, inverted duty structure, excess cash ledger, SEZ and more. Call The Prudent Books for a free eligibility check.">
   <meta property="og:title" content="GST Refund in Delhi-NCR | The Prudent Books">
@@ -543,6 +554,19 @@
       });
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && !popup.hidden) closePopup();
+      });
+    })();
+
+    // Report every Call / WhatsApp tap to Google Ads as a conversion.
+    (function () {
+      var CALL = 'AW-18541692818/0894COj_3K4dEJKPr4lF';
+      var WHATSAPP = 'AW-18541692818/zex_CLTw2a4dEJKPr4lF';
+
+      document.addEventListener('click', function (e) {
+        var link = e.target.closest('a[href^="tel:"], a[href^="https://wa.me"]');
+        if (!link) return;
+        var sendTo = link.getAttribute('href').indexOf('tel:') === 0 ? CALL : WHATSAPP;
+        gtag('event', 'conversion', { 'send_to': sendTo });
       });
     })();
   </script>
